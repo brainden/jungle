@@ -13,6 +13,7 @@
       <thead>
         <tr>
           <th colspan="2">Product</th>
+          <th>Description</th>
           <th>Quantity</th>
           <th>Price</th>
         </tr>
@@ -22,7 +23,7 @@
         <tbody> 
         <tr>
           <th colspan="2"><p><% order.product.name %></p><%= image_tag order.product.image.tiny%></th>
-          <th>Unit Price</th>
+          <th><%=order.product.description%></th>
           <th><%= order.quantity %></th>
           <th><%= humanized_money_with_symbol order.total_price_cents / 100.0 %></th>
         </tr>
@@ -35,7 +36,7 @@
         </th>
       <th>
         <%= humanized_money_with_symbol @order.total_cents / 100.0 %>
-      <th>
+      </th>
     </tr>
     </tfoot>
   </table>
