@@ -1,0 +1,13 @@
+<div class="order-detail">
+        <dl>
+        <% @order.line_item.each do |order| %>
+          <dt>Name</dt>
+          <dd><%= order.product.name %></dd>
+          <dt>Description</dt>
+          <dd><%= order.product.description %></dd>
+          <dt>Quantity</dt>
+          <dd><%= order.quantity %></dd>
+          <dt>Price</dt>
+          <dd><%= humanized_money_with_symbol order.total_price_cents / 100.0 %></dd>
+        </dl>
+      </div>

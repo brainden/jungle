@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
+  http_basic_authenticate_with :name =>  ENV["HTTP_USER"],
+  :password => ENV["HTTP_PASSWORD"], except: [:index, :show]
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  # app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  include HttpAuthConcern
+  # rest of your code
+end
+
   protect_from_forgery with: :exception
 
   private
